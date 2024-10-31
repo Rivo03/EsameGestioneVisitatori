@@ -20,25 +20,21 @@ body {
     width: 90%;
 }
 
-/* Titolo */
 .container h1 {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Tabella invisibile */
 .table {
     width: 100%;
-    border-collapse: collapse; /* Rimuove i bordi della tabella */
+    border-collapse: collapse;
 }
 
-/* Celle della tabella */
 .table td {
     padding: 8px 0;
 }
 
-/* Link in stile pulsante */
 .button-link {
     display: block;
     color: #ffffff;
@@ -48,9 +44,10 @@ body {
     text-decoration: none;
     width: 100%;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .button-link:hover {
     background-color: #0056b3;
+    color: #ffffff;
 }
