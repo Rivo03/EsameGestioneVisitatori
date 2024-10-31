@@ -88,7 +88,7 @@ public class VisitatoreController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Seleziona fino a tre interessi.");
         }
 
-        // Logica per creare un percorso personalizzato basato sugli interessi selezionati
+
         StringBuilder percorso = new StringBuilder("Percorso creato con gli interessi: ");
         for (Long interesseId : interesseIds) {
             percorso.append(interesseId).append(" ");

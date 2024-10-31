@@ -3,7 +3,7 @@ package it.itsrizzoli.EsameGestioneVisitatori.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "interesse") // Nome della tabella
+@Table(name = "interesse")
 public class Interesse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,11 +12,11 @@ public class Interesse {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    // Costruttore senza argomenti
+
     public Interesse() {
     }
 
-    // Costruttore con argomenti
+
     public Interesse(String nome) {
         this.nome = nome;
     }

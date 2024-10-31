@@ -21,6 +21,4 @@ public class VisitaGuidata {
     @NotNull
     private String data;
 
-    // Getters e Setters
-    // (Stesso codice del modello che hai fornito in precedenza)
 }

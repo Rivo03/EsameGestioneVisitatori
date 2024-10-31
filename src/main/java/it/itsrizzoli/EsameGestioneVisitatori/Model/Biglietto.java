@@ -15,7 +15,7 @@ public class Biglietto {
     private int eta;
     private double prezzo;
 
-    // Getters e Setters
+
     public Long getId() {
         return id;
     }
