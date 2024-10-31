@@ -1,4 +1,4 @@
-//UserController
+// UserController
 package it.itsrizzoli.EsameGestioneVisitatori.Controller;
 
 import it.itsrizzoli.EsameGestioneVisitatori.Dao.BigliettoDao;
@@ -34,11 +34,11 @@ public class VisitatoreController {
     private InteresseDao interesseDao;
 
     @PostMapping("/biglietti")
-    public ResponseEntity<Biglietto> creaBiglietto(@RequestBody @Validated Biglietto biglietto) {
+    public ResponseEntity<String> creaBiglietto(@RequestBody @Validated Biglietto biglietto) {
         if (biglietto.getDataVisita() == null || biglietto.getIdVisitatore() == null) {
             throw new IllegalArgumentException("ID del visitatore e data di visita non possono essere nulli");
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(bigliettoDao.save(biglietto));
+        return ResponseEntity.status(HttpStatus.CREATED).body("Biglietto creato: " + biglietto);
     }
 
     @GetMapping("/orari")
@@ -47,13 +47,13 @@ public class VisitatoreController {
     }
 
     @PostMapping("/visite-guidate")
-    public ResponseEntity<VisitaGuidata> creaVisitaGuidata(@RequestBody @Validated VisitaGuidata visitaGuidata) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(visitaGuidataDao.save(visitaGuidata));
+    public ResponseEntity<String> creaVisitaGuidata(@RequestBody @Validated VisitaGuidata visitaGuidata) {
+        return ResponseEntity.status(HttpStatus.CREATED).body("Visita guidata creata: " + visitaGuidata);
     }
 
     @PostMapping("/interessi")
-    public ResponseEntity<Interesse> creaInteresse(@RequestBody @Validated Interesse interesse) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(interesseDao.save(interesse));
+    public ResponseEntity<String> creaInteresse(@RequestBody @Validated Interesse interesse) {
+        return ResponseEntity.status(HttpStatus.CREATED).body("Interesse creato: " + interesse);
     }
 
     @GetMapping("/interessi")
