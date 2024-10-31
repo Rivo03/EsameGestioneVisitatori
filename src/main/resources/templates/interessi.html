@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stile.css">
     <title>Interessi</title>
+    <script>
+        function limitSelection() {
+            const checkboxes = document.querySelectorAll('input[name="interesseIds"]');
+            const selectedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+
+            // Se il numero di selezioni supera il massimo
+            if (selectedCount > 3) {
+                alert("Puoi selezionare solo 3 interessi.");
+                // Deseleziona l'ultima selezione
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        }
+    </script>
 </head>
 <body>
 <h1>Interessi</h1>
 <form action="/api/interessi" method="post">
-    <label for="interesse">Seleziona un Interesse:</label>
-    <select id="interesse" name="interesseId" required>
-        <option value="" disabled selected>Seleziona...</option>
+    <p>Seleziona fino a 3 Interessi:</p>
+    <div>
         <li th:each="interesse : ${interessi}">
-            <option th:value="${interesse.id}" th:text="${interesse.nome}"></option>
+            <label>
+                <input type="checkbox" name="interesseIds" th:value="${interesse.id}" onclick="limitSelection()">
+                <span th:text="${interesse.nome}"></span>
+            </label>
         </li>
-    </select>
-    <button type="submit">Aggiungi Interesse</button>
+    </div>
+    <button type="submit">Crea Percorso</button>
 </form>
 <a href="/">Torna alla home</a>
 </body>
