@@ -1,6 +1,6 @@
 package it.itsrizzoli.EsameGestioneVisitatori.Model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity

@@ -2,6 +2,10 @@ package it.itsrizzoli.EsameGestioneVisitatori.Dao;
 
 import  it.itsrizzoli.EsameGestioneVisitatori.Model.Biglietto;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface BigliettoDao extends JpaRepository<Biglietto, Long> {
+import java.util.List;
+
+public interface BigliettoDao extends CrudRepository<Biglietto, Long> {
+    List<Biglietto> findAll();
 }
