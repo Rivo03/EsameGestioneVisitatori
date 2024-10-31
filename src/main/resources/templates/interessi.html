@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Interessi</title>
-    </head>
-    <body>
-        <h1>Interessi</h1>
-        <p th:text="${message}"></p>
-        <ul>
-            <li th:each="interesse : ${interessi}">
-            <span th:text="${interesse.nome}"></span>
-            </li>
-        </ul>
-        <form action="/api/interessi" method="post">
-
-            <button type="submit">Aggiungi Interesse</button>
-        </form>
-        <a href="/">Torna alla home</a>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stile.css">
+    <title>Interessi</title>
+</head>
+<body>
+<h1>Interessi</h1>
+<form action="/api/interessi" method="post">
+    <label for="interesse">Seleziona un Interesse:</label>
+    <select id="interesse" name="interesseId" required>
+        <option value="" disabled selected>Seleziona...</option>
+        <li th:each="interesse : ${interessi}">
+            <option th:value="${interesse.id}" th:text="${interesse.nome}"></option>
+        </li>
+    </select>
+    <button type="submit">Aggiungi Interesse</button>
+</form>
+<a href="/">Torna alla home</a>
+</body>
 </html>

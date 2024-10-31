@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @Controller
@@ -48,7 +50,9 @@ public class VisitatoreController {
     }
 
     @GetMapping("/interessi")
-    public String interessi() {
+    public String mostraInteressi(Model model) {
+        List<Interesse> interessi = interesseDao.findAll();
+        model.addAttribute("interessi", interessi);
         return "interessi";  // restituisce interessi.html
     }
 
@@ -73,9 +77,9 @@ public class VisitatoreController {
     }
 
     @PostMapping("/api/interessi")
-    public ResponseEntity<String> creaInteresse(@RequestBody @Validated Interesse interesse) {
-        interesseDao.save(interesse);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Interesse creato: " + interesse);
+    public ResponseEntity<String> creaInteresse(@RequestParam Long interesseId) {
+        // Logica per gestire l'aggiunta dell'interesse (ad es., associarlo a un visitatore)
+        return ResponseEntity.status(HttpStatus.CREATED).body("Interesse aggiunto: " + interesseId);
     }
 
     @GetMapping("/api/interessi")
