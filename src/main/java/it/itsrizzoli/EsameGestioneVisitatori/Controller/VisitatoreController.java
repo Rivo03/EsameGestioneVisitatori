@@ -34,22 +34,22 @@ public class VisitatoreController {
 
     @GetMapping("")
     public String index() {
-        return "index";  // restituisce index.html
+        return "index";
     }
 
     @GetMapping("/biglietti")
     public String biglietti() {
-        return "biglietti";  // restituisce biglietti.html
+        return "biglietti";
     }
 
     @GetMapping("/visite-guidate")
     public String visiteGuidate() {
-        return "visite-guidate";  // restituisce visite-guidate.html
+        return "visite-guidate";
     }
 
     @GetMapping("/interessi")
     public String interessi() {
-        return "interessi";  // restituisce interessi.html
+        return "interessi";
     }
 
     @PostMapping("/api/biglietti")
@@ -57,7 +57,7 @@ public class VisitatoreController {
         if (biglietto.getDataVisita() == null || biglietto.getIdVisitatore() == null) {
             throw new IllegalArgumentException("ID del visitatore e data di visita non possono essere nulli");
         }
-        bigliettoDao.save(biglietto);  // Salva il biglietto
+        bigliettoDao.save(biglietto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Biglietto creato: " + biglietto);
     }
 
