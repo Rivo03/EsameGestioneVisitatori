@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestisci Interessi</title>
+    </head>
+    <body>
+        <h1>Gestisci Interessi</h1>
+        <form action="/api/interessi" method="post">
+            <label for="nome">Nome Interesse:</label>
+            <input type="text" id="nome" name="nome" required><br>
+            <input type="submit" value="Aggiungi Interesse">
+        </form>
+        <h2>Elenco Interessi</h2>
+        <ul id="interessi-list"></ul>
+    </body>
+</html>

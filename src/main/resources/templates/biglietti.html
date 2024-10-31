@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Crea Biglietto</title>
+    </head>
+    <body>
+        <h1>Crea Biglietto</h1>
+        <form action="/api/biglietti" method="post">
+            <label for="idVisitatore">ID Visitatore:</label>
+            <input type="text" id="idVisitatore" name="idVisitatore" required><br>
+            <label for="dataVisita">Data Visita:</label>
+            <input type="date" id="dataVisita" name="dataVisita" required><br>
+            <input type="submit" value="Crea Biglietto">
+        </form>
+    </body>
+</html>
