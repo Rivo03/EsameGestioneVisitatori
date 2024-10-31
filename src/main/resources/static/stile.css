@@ -20,34 +20,37 @@ body {
     width: 90%;
 }
 
+/* Titolo */
 .container h1 {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.container a {
+/* Tabella invisibile */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Rimuove i bordi della tabella */
+}
+
+/* Celle della tabella */
+.table td {
+    padding: 8px 0;
+}
+
+/* Link in stile pulsante */
+.button-link {
     display: block;
-    color: #007bff;
-    font-size: 18px;
-    margin: 10px 0;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.container a:hover {
-    color: #0056b3;
-}
-
-.container a {
-    display: inline-block;
     color: #ffffff;
     background-color: #007bff;
     padding: 10px 15px;
     border-radius: 5px;
-    margin: 8px 0;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.container a:hover {
+.button-link:hover {
     background-color: #0056b3;
 }
