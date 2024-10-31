@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>it.itsrizzoli</groupId>
 	<artifactId>EsameGestioneVisitatori</artifactId>
@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.17</version> <!-- Aggiunta della dipendenza MySQL -->
+			<version>8.0.28</version>
 		</dependency>
 
 		<dependency>
