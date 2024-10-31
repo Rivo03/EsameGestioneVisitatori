@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interessi</title>
-</head>
-<body>
-<h1>Interessi</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interessi</title>
+    </head>
+    <body>
+        <h1>Interessi</h1>
+        <p th:text="${message}"></p>
+        <ul>
+            <li th:each="interesse : ${interessi}">
+            <span th:text="${interesse.nome}"></span>
+            </li>
+        </ul>
+        <form action="/api/interessi" method="post">
 
-<p th:text="${message}"></p> <!-- Mostra il messaggio di successo -->
-
-<ul>
-    <li th:each="interesse : ${interessi}">
-        <span th:text="${interesse.nome}"></span>
-    </li>
-</ul>
-
-<form action="/api/interessi" method="post">
-    <input type="text" name="nome" placeholder="Nuovo interesse" required>
-    <button type="submit">Aggiungi Interesse</button>
-</form>
-
-<a href="/">Torna alla home</a>
-</body>
+            <button type="submit">Aggiungi Interesse</button>
+        </form>
+        <a href="/">Torna alla home</a>
+    </body>
 </html>
