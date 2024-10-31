@@ -56,13 +56,19 @@ public class VisitatoreController {
         return "interessi";  // restituisce interessi.html
     }
 
-    @PostMapping("/api/biglietti")
-    public ResponseEntity<String> creaBiglietto(@RequestBody @Validated Biglietto biglietto) {
-        if (biglietto.getDataVisita() == null || biglietto.getIdVisitatore() == null) {
-            throw new IllegalArgumentException("ID del visitatore e data di visita non possono essere nulli");
+    @PostMapping
+    public ResponseEntity<Biglietto> creaBiglietto(@RequestBody Biglietto biglietto) {
+        // Logica di calcolo del prezzo e salvataggio
+        double prezzoBase = 10.0; // Prezzo base
+        if (biglietto.isConGuida()) {
+            prezzoBase += 5.0; // Costo extra per la guida
         }
-        bigliettoDao.save(biglietto);  // Salva il biglietto
-        return ResponseEntity.status(HttpStatus.CREATED).body("Biglietto creato: " + biglietto);
+        if (biglietto.getEta() < 18) {
+            prezzoBase *= 0.5; // Sconto per i minorenni
+        }
+        biglietto.setPrezzo(prezzoBase);
+        bigliettoDao.save(biglietto);
+        return ResponseEntity.ok(biglietto);
     }
 
     @GetMapping("/orari")
