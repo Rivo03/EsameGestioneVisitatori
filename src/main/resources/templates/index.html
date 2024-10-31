@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="/stile.css">
-        <title>Home Page</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Benvenuto nel sistema di gestione dei visitatori!</h1>
-            <table class="table">
-                <tr><td><a href="/biglietti" class="button-link">Crea Biglietto</a></td></tr>
-                <tr><td><a href="/visite-guidate" class="button-link">Crea Visita Guidata</a></td></tr>
-                <tr><td><a href="/interessi" class="button-link">Gestisci Interessi</a></td></tr>
-                <tr><td><a href="/area-utente" class="button-link">Area Utenti</a></td></tr>
-            </table>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Home Page</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Benvenuto nel sistema di gestione dei visitatori!</h1>
+    <table class="table table-bordered mt-4">
+        <tbody>
+        <tr>
+            <td class="text-center">
+                <a href="/biglietti" class="btn btn-primary" aria-label="Crea un nuovo biglietto">Crea Biglietto</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">
+                <a href="/visite-guidate" class="btn btn-primary" aria-label="Crea una visita guidata">Crea Visita Guidata</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">
+                <a href="/interessi" class="btn btn-primary" aria-label="Gestisci i tuoi interessi">Gestisci Interessi</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">
+                <a href="/area-utente" class="btn btn-primary" aria-label="Accedi all'area utenti">Area Utenti</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
