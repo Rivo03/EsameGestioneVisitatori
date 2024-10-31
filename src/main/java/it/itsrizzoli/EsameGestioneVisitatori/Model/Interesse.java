@@ -3,6 +3,7 @@ package it.itsrizzoli.EsameGestioneVisitatori.Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "interesse") // Nome della tabella
 public class Interesse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +28,3 @@ public class Interesse {
         this.nome = nome;
     }
 }
-

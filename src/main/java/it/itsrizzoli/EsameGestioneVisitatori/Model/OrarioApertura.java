@@ -1,4 +1,3 @@
-//Visitatori
 package it.itsrizzoli.EsameGestioneVisitatori.Model;
 
 import javax.persistence.*;

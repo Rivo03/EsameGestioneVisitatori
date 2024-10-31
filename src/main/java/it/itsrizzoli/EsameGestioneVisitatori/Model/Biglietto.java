@@ -4,17 +4,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "biglietto") // Aggiungi il nome della tabella se necessario
 public class Biglietto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "id_visitatore") // Nome della colonna nel database
     private Long idVisitatore;
+
+    @Column(name = "data_visita") // Nome della colonna nel database
     private String dataVisita;
 
     @ManyToMany
     @JoinTable(
-            name = "biglietto_interesse",
+            name = "biglietto_interesse", // Nome della tabella di join
             joinColumns = @JoinColumn(name = "biglietto_id"),
             inverseJoinColumns = @JoinColumn(name = "interesse_id"))
     private List<Interesse> interessi;
