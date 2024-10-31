@@ -77,9 +77,18 @@ public class VisitatoreController {
     }
 
     @PostMapping("/api/interessi")
-    public ResponseEntity<String> creaInteresse(@RequestParam Long interesseId) {
-        // Logica per gestire l'aggiunta dell'interesse (ad es., associarlo a un visitatore)
-        return ResponseEntity.status(HttpStatus.CREATED).body("Interesse aggiunto: " + interesseId);
+    public ResponseEntity<String> creaPercorso(@RequestParam List<Long> interesseIds) {
+        if (interesseIds.size() > 3) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Seleziona fino a tre interessi.");
+        }
+
+        // Logica per creare un percorso personalizzato basato sugli interessi selezionati
+        StringBuilder percorso = new StringBuilder("Percorso creato con gli interessi: ");
+        for (Long interesseId : interesseIds) {
+            percorso.append(interesseId).append(" ");  // Aggiungi l'id dell'interesse al percorso
+        }
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(percorso.toString());
     }
 
     @GetMapping("/api/interessi")
