@@ -1,12 +1,8 @@
 package it.itsrizzoli.EsameGestioneVisitatori.Dao;
 
 import it.itsrizzoli.EsameGestioneVisitatori.Model.Interesse;
-import it.itsrizzoli.EsameGestioneVisitatori.Model.OrarioApertura;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
-
-public interface InteresseDao extends CrudRepository<Interesse, Long> {
-    List<Interesse> findAll();
+public interface InteresseDao extends JpaRepository<Interesse, Long> {
+    // Non c'è bisogno di ridefinire findAll(), è già incluso in JpaRepository
 }

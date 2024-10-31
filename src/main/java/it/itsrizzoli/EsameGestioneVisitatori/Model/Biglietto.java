@@ -11,7 +11,7 @@ public class Biglietto {
     private Long id;
 
     @Column(name = "id_visitatore") // Nome della colonna nel database
-    private Long idVisitatore;
+    private String idVisitatore;
 
     @Column(name = "data_visita") // Nome della colonna nel database
     private String dataVisita;
@@ -32,11 +32,11 @@ public class Biglietto {
         this.id = id;
     }
 
-    public Long getIdVisitatore() {
+    public String getIdVisitatore() {
         return idVisitatore;
     }
 
-    public void setIdVisitatore(Long idVisitatore) {
+    public void setIdVisitatore(String idVisitatore) {
         this.idVisitatore = idVisitatore;
     }
 

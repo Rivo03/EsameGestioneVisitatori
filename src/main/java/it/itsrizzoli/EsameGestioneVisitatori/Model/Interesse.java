@@ -9,7 +9,17 @@ public class Interesse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
+
+    // Costruttore senza argomenti
+    public Interesse() {
+    }
+
+    // Costruttore con argomenti
+    public Interesse(String nome) {
+        this.nome = nome;
+    }
 
     // Getters e Setters
     public Long getId() {
@@ -26,5 +36,13 @@ public class Interesse {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Interesse{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }

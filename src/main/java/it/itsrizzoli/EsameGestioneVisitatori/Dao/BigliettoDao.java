@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface BigliettoDao extends CrudRepository<Biglietto, Long> {
+public interface BigliettoDao extends CrudRepository<Biglietto, String> {
     List<Biglietto> findAll();
 }
