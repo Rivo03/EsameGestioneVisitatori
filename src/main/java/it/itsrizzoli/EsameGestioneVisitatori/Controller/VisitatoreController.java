@@ -1,4 +1,3 @@
-// UserController
 package it.itsrizzoli.EsameGestioneVisitatori.Controller;
 
 import it.itsrizzoli.EsameGestioneVisitatori.Dao.BigliettoDao;
@@ -12,13 +11,13 @@ import it.itsrizzoli.EsameGestioneVisitatori.Model.VisitaGuidata;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-@RestController
-@RequestMapping("/api")
+@Controller
+@RequestMapping("/")
 public class VisitatoreController {
 
     @Autowired
@@ -33,11 +32,32 @@ public class VisitatoreController {
     @Autowired
     private InteresseDao interesseDao;
 
-    @PostMapping("/biglietti")
+    @GetMapping("")
+    public String index() {
+        return "index";  // restituisce index.html
+    }
+
+    @GetMapping("/biglietti")
+    public String biglietti() {
+        return "biglietti";  // restituisce biglietti.html
+    }
+
+    @GetMapping("/visite-guidate")
+    public String visiteGuidate() {
+        return "visite-guidate";  // restituisce visite-guidate.html
+    }
+
+    @GetMapping("/interessi")
+    public String interessi() {
+        return "interessi";  // restituisce interessi.html
+    }
+
+    @PostMapping("/api/biglietti")
     public ResponseEntity<String> creaBiglietto(@RequestBody @Validated Biglietto biglietto) {
         if (biglietto.getDataVisita() == null || biglietto.getIdVisitatore() == null) {
             throw new IllegalArgumentException("ID del visitatore e data di visita non possono essere nulli");
         }
+        bigliettoDao.save(biglietto);  // Salva il biglietto
         return ResponseEntity.status(HttpStatus.CREATED).body("Biglietto creato: " + biglietto);
     }
 
@@ -46,22 +66,24 @@ public class VisitatoreController {
         return orarioAperturaDao.findAll();
     }
 
-    @PostMapping("/visite-guidate")
+    @PostMapping("/api/visite-guidate")
     public ResponseEntity<String> creaVisitaGuidata(@RequestBody @Validated VisitaGuidata visitaGuidata) {
+        visitaGuidataDao.save(visitaGuidata);
         return ResponseEntity.status(HttpStatus.CREATED).body("Visita guidata creata: " + visitaGuidata);
     }
 
-    @PostMapping("/interessi")
+    @PostMapping("/api/interessi")
     public ResponseEntity<String> creaInteresse(@RequestBody @Validated Interesse interesse) {
+        interesseDao.save(interesse);
         return ResponseEntity.status(HttpStatus.CREATED).body("Interesse creato: " + interesse);
     }
 
-    @GetMapping("/interessi")
+    @GetMapping("/api/interessi")
     public List<Interesse> getInteressi() {
         return interesseDao.findAll();
     }
 
-    @GetMapping("/visite-guidate/filtra")
+    @GetMapping("/api/visite-guidate/filtra")
     public List<VisitaGuidata> filtraVisiteGuidate(@RequestParam List<String> temi) {
         return visitaGuidataDao.findByTemaIn(temi);
     }
