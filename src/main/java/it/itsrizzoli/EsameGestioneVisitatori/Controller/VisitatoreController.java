@@ -36,35 +36,35 @@ public class VisitatoreController {
 
     @GetMapping("")
     public String index() {
-        return "index";  // restituisce index.html
+        return "index";
     }
 
     @GetMapping("/biglietti")
     public String biglietti() {
-        return "biglietti";  // restituisce biglietti.html
+        return "biglietti";
     }
 
     @GetMapping("/visite-guidate")
     public String visiteGuidate() {
-        return "visite-guidate";  // restituisce visite-guidate.html
+        return "visite-guidate";
     }
 
     @GetMapping("/interessi")
     public String mostraInteressi(Model model) {
         List<Interesse> interessi = interesseDao.findAll();
         model.addAttribute("interessi", interessi);
-        return "interessi";  // restituisce interessi.html
+        return "interessi";
     }
 
     @PostMapping
     public ResponseEntity<Biglietto> creaBiglietto(@RequestBody Biglietto biglietto) {
-        // Logica di calcolo del prezzo e salvataggio
-        double prezzoBase = 10.0; // Prezzo base
+
+        double prezzoBase = 10.0;
         if (biglietto.isConGuida()) {
-            prezzoBase += 5.0; // Costo extra per la guida
+            prezzoBase += 5.0;
         }
         if (biglietto.getEta() < 18) {
-            prezzoBase *= 0.5; // Sconto per i minorenni
+            prezzoBase *= 0.5;
         }
         biglietto.setPrezzo(prezzoBase);
         bigliettoDao.save(biglietto);
@@ -91,7 +91,7 @@ public class VisitatoreController {
         // Logica per creare un percorso personalizzato basato sugli interessi selezionati
         StringBuilder percorso = new StringBuilder("Percorso creato con gli interessi: ");
         for (Long interesseId : interesseIds) {
-            percorso.append(interesseId).append(" ");  // Aggiungi l'id dell'interesse al percorso
+            percorso.append(interesseId).append(" ");
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(percorso.toString());
